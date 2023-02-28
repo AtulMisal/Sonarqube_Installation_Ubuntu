@@ -1,0 +1,20 @@
+# We can also install sonarqube through docker by pulling sonarqube image from docker hub.
+1. First log into your instance.
+2. apt update
+3. apt install docker.io
+4. docker pull sonarqube:latest (By default it will also pull latest image).
+5. docker image ls (To check image is pulled or not).
+6. docker container run -itd --name sonarqube -p 9000:9000 sonarqube:latest (Image name).
+7. docker container ls
+8. Run sonarqube on web for this open port 9000 on your instance 
+      select your instance
+      Go to security -- security group link -- edit inbound rule -- add custom tcp with port 9000 ip anywhere (depends on you).
+9. Copy instance ip with port in web as 
+    ip:9000
+10. Give credentials as id-admin pass-admin    -- Then change pass
+11. Else for pass they give one path copy that or go inside your container 
+        docker container -exec container id /bin/bash
+        check the file mentioned in that path 
+        cat filename and paste in pass field
+12. To check container id use 
+        docker container ls
